@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="keywords" content="寻书网" />
+		<meta name="description" content="寻书网">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+
+
+		<title>寻书网</title>
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<style>
+			a:link, a:visited {
+ 			text-decoration: none;
+ 			color:black;
+ 			background-color: #D6D6D6;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--LOGO,搜索-->
+		<div class="section0">
+			<div class="title" id="titleBar">
+				<img src="images/index/tbar/invalidName2.png" style="float: left;height:0.25rem;width:0.25rem" />
+				<img src="images/index/tbar/logo3s.png" style="height:0.31rem;width:0.5rem" />
+				<img id="searchBtn" src="images/index/tbar/search2.png" style="float: right;height:0.25rem;width:0.25rem" />
+			</div>
+            <form id="keywordInput"  class="searchform" hidden="hidden">
+			        <input id="search" class="icon-user" placeholder="快来寻找你喜欢的书单吧~"  onkeydown="entersearch()"/>
+					<input id="hiddenText" type="text" style="display:none" />  
+                    <span id="cancle" class="cancle">取消</span>
+			</form>
+		</div>
+		<img  id="banner" class="section3" src="images/banner.png" />
+
+		<div id="bookscontent">
+			<div id="notes"></div>
+			<ul id="searchresult"></ul>
+			<div id="books">
+		
+				<!--最热书单-->
+			<section class="section2">
+			<div class="hot">
+				<p style="font-size: 14px;color: #CDCDCD;">最热书单</p>
+			</div>
+			<div class="content">
+				<ul id="hottestBooks">
+				</ul>
+			</div>
+		</section>
+
+			<!--日期-->
+			<li class="date">
+			<div class="date-content">
+
+
+				<div class="year">
+					<div class="year-lf">
+						<span id="myyear"></span>
+					</div>
+					<div class="year-rg">
+						<span id="myweek"></span>
+					</div>
+					<p class="day" id="myday"></p>
+				</div>
+
+
+				<img src="images/line3.png"  class="line"/>
+				<div class="poetry">
+					<img src="images/symboll3.png"  class="poetry-lf"/>
+					<span>枕上诗书闲处好,门前风景雨来佳</span>
+					<img src="images/symbolr3.png"  class="poetry-rg"/>
+				</div>
+			</div>
+		</li>
+
+			<!--最新书单-->
+			<section class="section2">
+			<div class="hot">
+				<p style="font-size: 14px;color: #CDCDCD;">最新书单</p>
+			</div>
+			<div class="content">
+				<ul id="newestBooks">
+				</ul>
+			</div>
+			</section>
+			</div>
+		</div>
+
+		<script>
+			//日历
+            var myDate = new Date();
+            var Week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+            document.getElementById("myday").innerHTML = myDate.getDate();
+            document.getElementById("myyear").innerHTML = myDate.getFullYear()+'年'+(myDate.getMonth()+1)+'月';
+            document.getElementById("myweek").innerHTML = Week[myDate.getDay()];
+
+			//搜索
+            var perUrl = "http://47.94.209.159:8080";
+            
+
+		</script>
+	</body>
+
+</html>
